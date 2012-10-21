@@ -15,12 +15,12 @@ Libraries in current `:use` are as follows:
   
 `:use` CL+ in order to type this:
 
-(defpackage :foo
-  (:use :cl+))
+    (defpackage :foo
+      (:use :cl+))
   
 Instead of this:
 
-(defpackage :foo
-  (:use :org.tfeb.cl/conduits :iterate :split-sequence :alexandria :cl-ppcre))
+    (defpackage :foo
+      (:use :org.tfeb.cl/conduits :iterate :split-sequence :alexandria :cl-ppcre))
 
 This "library" may in fact have been a retarded idea.  
