@@ -8,5 +8,5 @@ are bundled up in CL+ so I don't have to list so many libraries in my :use forms
   :license "BSD"
   :components ((:file "package"))
   :depends-on (:alexandria :iterate
-               :cl-ppcre :conduit-packages))
+               :cl-ppcre :split-sequence :conduit-packages))
 

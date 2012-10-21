@@ -10,9 +10,10 @@ Libraries in current `:use` are as follows:
   1. conduit-packages
   2. alexandria
   3. iterate
-  4. CL-PPCRE
+  4. split-sequence
+  5. CL-PPCRE
   
-`:use` cl+ in order to type this:
+`:use` CL+ in order to type this:
 
 (defpackage :foo
   (:use :cl+))
@@ -20,6 +21,6 @@ Libraries in current `:use` are as follows:
 Instead of this:
 
 (defpackage :foo
-  (:use :org.tfeb.cl/conduits :iterate :alexandria :cl-ppcre))
+  (:use :org.tfeb.cl/conduits :iterate :split-sequence :alexandria :cl-ppcre))
 
-This library may in fact have been a retarded idea.  
+This "library" may in fact have been a retarded idea.  
