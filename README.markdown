@@ -1,5 +1,4 @@
-CL+
----
+# CL+
 
 ## Essential (Bad) Idea
 
