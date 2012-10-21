@@ -7,6 +7,6 @@ are bundled up in CL+ so I don't have to list so many libraries in my :use forms
   :author "Joe Taylor <taylor@c0de.co>"
   :license "BSD"
   :components ((:file "package"))
-  :depends-on (:alexandria :iterate
+  :depends-on (:alexandria :iterate :series :drakma :closure-html
                :cl-ppcre :split-sequence :conduit-packages))
 
