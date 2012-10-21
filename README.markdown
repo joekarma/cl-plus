@@ -7,9 +7,10 @@ reason than to save me some typing when composing defpackage forms.
 
 Libraries in current `:use` are as follows:
 
-  1. Alexandria
-  2. Iterate
-  3. CL-PPCRE
+  1. conduit-packages
+  2. alexandria
+  3. iterate
+  4. CL-PPCRE
   
 `:use` cl+ in order to type this:
 
@@ -19,6 +20,6 @@ Libraries in current `:use` are as follows:
 Instead of this:
 
 (defpackage :foo
-  (:use :cl :iterate :alexandria :cl-ppcre))
+  (:use :org.tfeb.cl/conduits :iterate :alexandria :cl-ppcre))
 
 This library may in fact have been a retarded idea.  
