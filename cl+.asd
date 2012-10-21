@@ -2,11 +2,13 @@
 
 (asdf:defsystem #:cl+
   :serial t
-  :description "CL+ is nothing but a combination of pre-existing libraries. These libraries
-are bundled up in CL+ so I don't have to list so many libraries in my :use forms."
+  :description "CL+ is nothing more than a combination of pre-existing libraries. These libraries are bundled up in CL+ so that I don't have to list so many libraries in my USE forms."
   :author "Joe Taylor <taylor@c0de.co>"
   :license "BSD"
-  :components ((:file "package"))
-  :depends-on (:alexandria :iterate :series :drakma :closure-html
-               :cl-ppcre :split-sequence :conduit-packages))
+  :components ((:file "package")
+               (:file "monkey"))
+  :depends-on (:ALEXANDRIA :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO :CLOSER-MOP
+               :CLOSURE-HTML :CONDUIT-PACKAGES :DRAKMA :INFERIOR-SHELL
+               :ITERATE :NET-TELENT-DATE :OSICAT :SERIES :SIMPLE-DATE-TIME
+               :SPLIT-SEQUENCE))
 
