@@ -6,7 +6,7 @@
 
 (defpackage #:cl+
   (:use #:split-sequence #:alexandria #:ppcre #:metabang-bind #:anaphora)
-  (:import-from :hu.dwim.defclass-star #:DEFCLASS* 	#:DEFCONDITION*)
+  (:import-from :hu.dwim.defclass-star #:DEFCLASS* #:DEFCONDITION*)
   (:export #:defclass* #:defcondition*))
 
 (import '(cl:nil) :cl+)
