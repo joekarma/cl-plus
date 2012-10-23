@@ -2,7 +2,7 @@
 
 (in-package :org.tfeb.cl/conduits)
 
-#+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+))
+#+SB-PACKAGE-LOCKS #.(ignore-errors (sb-ext:unlock-package :cl+))
 
 (defpackage #:cl+
   (:use #:split-sequence #:alexandria #:ppcre #:metabang-bind #:anaphora)
@@ -32,7 +32,7 @@
   (do-external-symbols (sym package)
     (export sym :cl+)))
 
-#+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+)
+#+SB-PACKAGE-LOCKS #.(sb-ext:lock-package :cl+)
 
 (defpackage :cl+-user
   (:use :cl+))
