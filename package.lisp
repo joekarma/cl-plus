@@ -3,7 +3,7 @@
 (in-package :org.tfeb.cl/conduits)
 
 (defpackage #:cl+
-  (:use #:org.tfeb.cl/conduits #:split-sequence #:alexandria #:ppcre))
+  (:use #:org.tfeb.cl/conduits #:split-sequence #:alexandria #:ppcre #:metabang-bind #:anaphora))
 
 (import '(cl:nil) :cl+)
 (export '(cl:nil) :cl+)

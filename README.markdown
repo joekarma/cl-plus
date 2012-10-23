@@ -12,9 +12,15 @@ Libraries in current `use` are as follows:
   2. alexandria
   3. split-sequence
   4. CL-PPCRE
+  5. metabang-bind
+  6. anaphora
+
+Anaphoric macros may be contentious among Lisp devs, but I like them,
+and so have decided to include anaphora in the use list.
 
 I chose not to `use` iterate or series because some of their symbols
-conflict and I couldn't make a decision between the two.
+conflict and I couldn't make a decision between the two. I'm leaning
+towards iterate, however.
   
 `use` CL+ in order to type this:
 
@@ -38,7 +44,9 @@ follows:
     (:ALEXANDRIA :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO :CLOSER-MOP
      :CLOSURE-HTML :CONDUIT-PACKAGES :DRAKMA :INFERIOR-SHELL
      :ITERATE :NET-TELENT-DATE :OSICAT :SERIES :SIMPLE-DATE-TIME
-     :SPLIT-SEQUENCE)
+     :SPLIT-SEQUENCE
+
+     :ANAPHORA :METABANG-BIND)
 
 I'm representing dates in my programs using the SIMPLE-DATE-TIME
 library. I may use other date or time libraries as well, but dates
