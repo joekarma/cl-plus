@@ -9,6 +9,7 @@ reason than to save me some typing when composing defpackage forms.
 Libraries in current `use` are as follows:
 
   1. conduit-packages
+  2. closer-mop (merged with above)
   2. alexandria
   3. split-sequence
   4. CL-PPCRE
@@ -30,7 +31,7 @@ towards iterate, however.
 Instead of this:
 
     (defpackage :foo
-      (:use :org.tfeb.cl/conduits :split-sequence :alexandria :cl-ppcre :cl-fad))
+      (:use :org.tfeb.cl/conduits :split-sequence :alexandria :cl-ppcre :cl-fad)) ; etc.
 
 This "library" may in fact have been a retarded idea. But for now, it
 works. Toss CL+ in local-projects and quickload it. It takes care of a
@@ -38,7 +39,7 @@ few common dependencies for you as well. Never again worry about
 whether drakma or closure-html have been loaded! CL+ "depends" on
 these packages, because I often rely on having them at hand.
 
-The complete list of modules which are in CL+'s dependency list is as
+The complete list of modules which are in CL+'s dependency list are as
 follows:
 
     (:ALEXANDRIA :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO :CLOSER-MOP
