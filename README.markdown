@@ -58,7 +58,7 @@ SIMPLE-DATE-TIME's classes.
 There are a few libraries which, for one reason or another, are
 missing functions I desire. Rather than waiting for the library
 maintainers to update their code, I've chosen to keep a collection of
-monkeypatches. My patches can be found in monkey.lisp
+monkey patches. My patches can be found in monkey.lisp
 
 I recognize that this is probably a very bad idea, but I'm giving it a
 try, and guess I'll just have to wait to get bitten.
