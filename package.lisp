@@ -29,3 +29,6 @@
     (export sym :cl+)))
 
 #+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+)
+
+(defpackage :cl+-user
+  (:use :cl+))
