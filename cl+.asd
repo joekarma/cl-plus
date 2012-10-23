@@ -9,7 +9,7 @@
                (:file "monkey"))
   :depends-on (:ALEXANDRIA :BORDEAUX-THREADS :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO
                :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :INFERIOR-SHELL
-	       :ITERATE :NET-TELENT-DATE :OSICAT :SERIES :SIMPLE-DATE-TIME
+	       :ITERATE :NET-TELENT-DATE :OSICAT :PARENSCRIPT :SERIES :SIMPLE-DATE-TIME
 	       :SPLIT-SEQUENCE :METACOPY
-	       :ANAPHORA :METABANG-BIND))
+	       :ANAPHORA :METABANG-BIND))  ;; Other favourites include: cl-smtp, external-program, [buildnode / emit-xml]
 
