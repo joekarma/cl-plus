@@ -28,3 +28,4 @@
   (do-external-symbols (sym package)
     (export sym :cl+)))
 
+#+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+)
