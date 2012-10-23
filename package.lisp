@@ -2,6 +2,8 @@
 
 (in-package :org.tfeb.cl/conduits)
 
+#+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+))
+
 (defpackage #:cl+
   (:use #:split-sequence #:alexandria #:ppcre #:metabang-bind #:anaphora)
   (:import-from :hu.dwim.defclass-star #:DEFCLASS* 	#:DEFCONDITION*)
