@@ -1,4 +1,4 @@
-np;;;; package.lisp
+;;;; package.lisp
 
 (in-package :org.tfeb.cl/conduits)
 
