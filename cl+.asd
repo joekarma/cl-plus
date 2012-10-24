@@ -10,5 +10,8 @@
   :depends-on (:ALEXANDRIA :BORDEAUX-THREADS :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO
                :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :HU.DWIM.DEFCLASS-STAR
                :INFERIOR-SHELL :ITERATE :NET-TELENT-DATE :OSICAT :PARENSCRIPT :SERIES :SIMPLE-DATE-TIME
-	       :SPLIT-SEQUENCE :METACOPY :ANAPHORA :METABANG-BIND))  ;; Other favourites include: cl-smtp, external-program, [buildnode / emit-xml], restas, cl-unification, cl-unicode, postmodern, elephant, fset, stp-query
+	       :SPLIT-SEQUENCE :METACOPY :ANAPHORA :METABANG-BIND))
+  ;; Other favourites include: cl-smtp, external-program, [buildnode / emit-xml], restas,
+  ;; cl-unification, cl-unicode, postmodern, elephant, fset, stp-query, trivial-timeouts, cl-store, 5am
+
 

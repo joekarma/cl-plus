@@ -1,11 +1,11 @@
-;;;; package.lisp
+np;;;; package.lisp
 
 (in-package :org.tfeb.cl/conduits)
 
 #.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+)))
 
 (defpackage #:cl+
-  (:use #:split-sequence #:alexandria #:ppcre #:metabang-bind #:anaphora)
+  (:use #:split-sequence #:alexandria #:metabang-bind #:anaphora)
   (:import-from :hu.dwim.defclass-star #:DEFCLASS* #:DEFCONDITION*)
   (:export #:defclass* #:defcondition*))
 
@@ -36,3 +36,31 @@
 
 (defpackage :cl+-user
   (:use :cl+))
+
+(export '(cl:nil) :cl+-user)
+
+#.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+/iter)))
+
+(defpackage :cl+/iter
+  (:use :cl+ :iterate))
+
+(export '(cl:nil) :cl+/iter)
+
+(dolist (package (package-use-list :cl+/iter))
+  (do-external-symbols (sym package)
+    (export sym :cl+/iter)))
+
+#.(progn #+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+/iter))
+
+#.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+/series)))
+
+(defpackage :cl+/series
+  (:use :cl+ :series))
+
+(export '(cl:nil) :cl+/series)
+
+(dolist (package (package-use-list :cl+/series))
+  (do-external-symbols (sym package)
+    (export sym :cl+/series)))
+
+#.(progn #+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+/series))

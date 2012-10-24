@@ -12,7 +12,6 @@ Libraries in current `use` are as follows:
   2. closer-mop (merged with above)
   2. alexandria
   3. split-sequence
-  4. CL-PPCRE
   5. metabang-bind
   6. anaphora
 
@@ -31,7 +30,10 @@ towards iterate, however.
 Instead of this:
 
     (defpackage :foo
-      (:use :org.tfeb.cl/conduits :split-sequence :alexandria :cl-ppcre :cl-fad)) ; etc.
+      (:use :org.tfeb.cl/conduits :split-sequence :alexandria :anaphora :cl-fad)) ; etc.
+
+Just in case you find yourself using iterate (or series) often, this
+system creates two additional packages: CL+/ITERATE and CL+/SERIES
 
 This "library" may in fact have been a retarded idea. But for now, it
 works. Toss CL+ in local-projects and quickload it. It takes care of a
@@ -43,8 +45,8 @@ The complete list of modules which are in CL+'s dependency list are as
 follows:
 
     (:ALEXANDRIA :BORDEAUX-THREADS :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO
-     :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :INFERIOR-SHELL
-     :ITERATE :NET-TELENT-DATE :OSICAT :PARENSCRIPT :SERIES :SIMPLE-DATE-TIME
+     :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :HU.DWIM.DEFCLASS-STAR
+     :INFERIOR-SHELL :ITERATE :NET-TELENT-DATE :OSICAT :PARENSCRIPT :SERIES :SIMPLE-DATE-TIME
      :SPLIT-SEQUENCE :METACOPY :ANAPHORA :METABANG-BIND)
 
 I'm representing dates in my programs using the SIMPLE-DATE-TIME
