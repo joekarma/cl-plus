@@ -66,10 +66,13 @@ try, and guess I'll just have to wait to get bitten.
 
 Furthermore, I've included a few custom functions that might otherwise
 be dumped in .sbclrc as extensions to CL+ itself. So far these include
-SYMLOOK and SYMCALL. The former attempts to find a symbol in a given
-package. If the symbol (and the package) are found, it returns two
-values: the symbols value, and t. If however the symbol or package is
-*not* found, rather than triggering an error this macro will silently
-return two values: nil, and nil. SYMCALL is similar but works with
-functions instead. Pass it a package name symbol, a function name
-symbol, and a list of parameters, and it will take care of the &rest.
+SYMLOOK, SYMCALL, and SYMBOUNDP. The former attempts to find a symbol
+in a given package. If the symbol (and package) are found, it returns
+two values: the symbols value, and t. If however the symbol or package
+is *not* found, rather than triggering an error this macro will
+silently return two values: nil, and nil. SYMCALL is similar but works
+with functions instead. Pass it a package name, a function name, and a
+list of parameters, and it will take care of the &rest. SYMBOUNDP
+simply tests whether a symbol is present or not in a given
+package. Returns :external if it is present and exported, :internal if
+it is merely present, else nil.
