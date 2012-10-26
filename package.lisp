@@ -7,7 +7,8 @@
 (defpackage #:cl+
   (:use #:split-sequence #:alexandria #:metabang-bind #:anaphora)
   (:import-from :hu.dwim.defclass-star #:DEFCLASS* #:DEFCONDITION*)
-  (:export #:defclass* #:defcondition*))
+  (:export #:defclass* #:defcondition*)
+  (:export #:symlook #:symcall))
 
 (import '(cl:nil) :cl+)
 (export '(cl:nil) :cl+)

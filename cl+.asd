@@ -6,6 +6,7 @@
   :author "Joe Taylor <taylor@c0de.co>"
   :license "BSD"
   :components ((:file "package")
+               (:file "extensions")
                (:file "monkey"))
   :depends-on (:ALEXANDRIA :BORDEAUX-THREADS :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO :CL-UNIFICATION
                :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :HU.DWIM.DEFCLASS-STAR
