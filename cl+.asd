@@ -8,9 +8,9 @@
   :components ((:file "package")
                (:file "extensions")
                (:file "monkey"))
-  :depends-on (:ALEXANDRIA :BABEL :BORDEAUX-THREADS :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO :CL-UNIFICATION
-               :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :HU.DWIM.DEFCLASS-STAR :IRONCLAD
-               :INFERIOR-SHELL :ITERATE :NET-TELENT-DATE :OSICAT :PARENSCRIPT :SERIES :SIMPLE-DATE-TIME
+  :depends-on (:ALEXANDRIA :BABEL :BORDEAUX-THREADS :CL-FAD :CL-INTERPOL :CL-PPCRE :CL-WHO :CL-UNIFICATION 
+               :CLOSER-MOP :CLOSURE-HTML :CONDUIT-PACKAGES :CXML :DRAKMA :HU.DWIM.DEFCLASS-STAR :IRONCLAD :IOLIB
+               :INFERIOR-SHELL :ITERATE :NET-TELENT-DATE :OSICAT :PARENSCRIPT :SERIES :SIMPLE-DATE-TIME :TRIVIAL-TIMEOUT
 	       :SPLIT-SEQUENCE :METACOPY :ANAPHORA :METABANG-BIND))
   ;; Other favourites include: cl-smtp, external-program, [buildnode / emit-xml], restas,
   ;; cl-unicode, postmodern, elephant, fset, stp-query, trivial-timeouts, cl-store, 5am
