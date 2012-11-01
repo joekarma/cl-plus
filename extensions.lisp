@@ -39,3 +39,21 @@
 (defmacro symboundp (package sym)
   `(symbol-bound-p (quote ,package)
                    (quote ,sym)))
+
+
+
+
+
+
+
+(defpackage :<!
+  (:use :cl+/iter)
+  (:export :parenscript)
+  (:documentation "Extensions intended to be used with YACLML."))
+
+(in-package :<!)
+
+(defmacro parenscript (&body parenscript-forms)
+  `(<:script :type "text/javascript"
+             (ps:ps-to-stream yaclml:*yaclml-stream*
+               ,@parenscript-forms)))
