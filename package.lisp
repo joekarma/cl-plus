@@ -5,7 +5,7 @@
 #.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+)))
 
 (defpackage #:cl+
-  (:use #:split-sequence #:alexandria #:metabang-bind #:anaphora)
+  (:use #:split-sequence #:alexandria #:metabang-bind #:anaphora #:trivial-timeout)
   (:import-from :hu.dwim.defclass-star #:DEFCLASS* #:DEFCONDITION*)
   (:export #:defclass* #:defcondition*)
   (:export #:symlook #:symcall #:symboundp))
