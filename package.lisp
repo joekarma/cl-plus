@@ -4,7 +4,19 @@
   (:use :cl)
   (:import-from :hu.dwim.defclass-star #:defclass* #:defcondition*)
   (:export #:defclass* #:defcondition*)
-  (:export #:symlook #:symcall #:symboundp))
+  (:export #:symlook #:symcall #:symboundp)
+  (:export #:reduce-series))
+
+(syntax:define-package-syntax :cl+
+  (:merge :standard)
+  (:dispatch-macro-char #\# #\? #'cl-interpol::interpol-reader)
+  (:dispatch-macro-char #\# #\% #'fset::|#%-reader|)
+  (:dispatch-macro-char #\# #\$ #'fset::|#$-reader|)
+  (:dispatch-macro-char #\# #\~ #'fset::|#~-reader|)
+  (:dispatch-macro-char #\# #\[ #'fset::|#[-reader|)
+  (:dispatch-macro-char #\# #\{ #'fset::|#{-reader|)
+  (:dispatch-macro-char #\# #\@ #'cl-annot.syntax:annotation-syntax-reader)
+  (:dispatch-macro-char #\# #\Z #'series::series-reader))
 
 (cl:in-package :cl+)
 
