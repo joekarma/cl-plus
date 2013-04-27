@@ -47,3 +47,15 @@
 (defun shadowing-use-package (package-to-use &optional (package #+sbcl (sb-int:sane-package) #-sbcl *package*))
   (shadow (package-external-symbols package))
   (use-package package-to-use package))
+
+#+nil(defpackage :<!
+  (:use :cl+/iter)
+  (:export :parenscript)
+  (:documentation "Extensions intended to be used with YACLML."))
+
+#+nil(in-package :<!)
+
+#+nil(defmacro parenscript (&body parenscript-forms)
+  `(<:script :type "text/javascript"
+             (ps:ps-to-stream yaclml:*yaclml-stream*
+               ,@parenscript-forms)))
