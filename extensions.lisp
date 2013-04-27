@@ -39,3 +39,11 @@
 (defmacro symboundp (package sym)
   `(symbol-bound-p (quote ,package)
                    (quote ,sym)))
+
+(defun package-external-symbols (&optional (package #+sbcl (sb-int:sane-package) #-sbcl *package*))
+  (loop for sym being the external-symbols in package
+        collect sym))
+
+(defun shadowing-use-package (package-to-use &optional (package #+sbcl (sb-int:sane-package) #-sbcl *package*))
+  (shadow (package-external-symbols package))
+  (use-package package-to-use package))

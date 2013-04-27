@@ -1,0 +1,7 @@
+More Lisp Libraries:
+  for xml output: cl-markup, sexml (good)
+  for regular expression syntax: cl-irregsexp
+  for macros: macroexpand-dammit
+  for coding: named-readtables
+  for stuff: iolib
+  pattern mataching: toadstool, cl-unification, but maybe metapat?

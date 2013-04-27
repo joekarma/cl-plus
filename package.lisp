@@ -1,67 +1,48 @@
 ;;;; package.lisp
 
-(in-package :org.tfeb.cl/conduits)
-
-#.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+)))
-
-(defpackage #:cl+
-  (:use #:split-sequence #:alexandria #:metabang-bind #:anaphora #:trivial-timeout)
-  (:import-from :hu.dwim.defclass-star #:DEFCLASS* #:DEFCONDITION*)
+(cl:defpackage #:cl+
+  (:use :cl)
+  (:import-from :hu.dwim.defclass-star #:defclass* #:defcondition*)
   (:export #:defclass* #:defcondition*)
   (:export #:symlook #:symcall #:symboundp))
 
-(import '(cl:nil) :cl+)
-(export '(cl:nil) :cl+)
+(cl:in-package :cl+)
 
-;;; overlay symbols in cl with those in closer-mop
-(let (closer-mop-syms cl-syms)
-  (do-external-symbols (s :org.tfeb.cl/conduits)
-    (push (string s) cl-syms))
-  (do-external-symbols (s :closer-mop)
-    (push (string s) closer-mop-syms))
-  (dolist (s (set-difference cl-syms closer-mop-syms :test #'string=))
-    (import (intern s :org.tfeb.cl/conduits) :cl+)
-    (export (intern s :org.tfeb.cl/conduits) :cl+))
-  (dolist (s (set-difference closer-mop-syms cl-syms :test #'string=))
-    (import (intern s :closer-mop) :cl+)
-    (export (intern s :closer-mop) :cl+))
-  (dolist (s (intersection closer-mop-syms cl-syms :test #'string=))
-    (import (intern s :closer-mop) :cl+)
-    (export (intern s :closer-mop) :cl+)))
+(cl:do-symbols (sym :cl)
+  (cl:export sym))
 
-(dolist (package (package-use-list :cl+))
-  (do-external-symbols (sym package)
-    (export sym :cl+)))
+(cl:import '(cl:nil))
+(cl:export '(cl:nil))
 
-#.(progn #+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+))
+(cl:defvar *symbol-conflicts* '())
 
-(defpackage :cl+-user
+(cl:defun shadowing-combine-packages (packages)
+  (cl:loop :for package :in packages
+     cl:do (cl:loop :for sym :being :the external-symbols :in package
+              :do (cl:when (cl:find-symbol (cl:symbol-name sym))
+                    (cl:push (cl:list (cl:symbol-name sym)
+                                      (cl:symbol-package (cl:find-symbol (cl:symbol-name sym)))
+                                      (cl:symbol-package sym))
+                             *symbol-conflicts*)
+                    (cl:unintern (cl:find-symbol (cl:symbol-name sym))))
+                  (cl:shadowing-import sym)
+                  (cl:export sym))))
+
+(shadowing-combine-packages '(#:cl #:cl-fad #:alexandria #:anaphora #:metabang-bind :cl-package-locks #:trivial-timeout
+                              #:optima #:local-time #:fset #:closer-mop))
+
+(series::install)
+
+(cl:do-symbols (sym :cl+)
+  (cl:when (cl:eql (cl:find-package :series)
+                   (cl:symbol-package sym))
+    (cl:export sym)))
+
+(cl:defpackage :cl+-user
   (:use :cl+))
 
-(export '(cl:nil) :cl+-user)
+(cl:defpackage :cl+/iter)
 
-#.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+/iter)))
+(cl:in-package :cl+/iter)
 
-(defpackage :cl+/iter
-  (:use :cl+ :iterate))
-
-(export '(cl:nil) :cl+/iter)
-
-(dolist (package (package-use-list :cl+/iter))
-  (do-external-symbols (sym package)
-    (export sym :cl+/iter)))
-
-#.(progn #+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+/iter))
-
-#.(progn #+SB-PACKAGE-LOCKS (ignore-errors (sb-ext:unlock-package :cl+/series)))
-
-(defpackage :cl+/series
-  (:use :cl+ :series))
-
-(export '(cl:nil) :cl+/series)
-
-(dolist (package (package-use-list :cl+/series))
-  (do-external-symbols (sym package)
-    (export sym :cl+/series)))
-
-#.(progn #+SB-PACKAGE-LOCKS (sb-ext:lock-package :cl+/series))
+(cl+::shadowing-combine-packages '(:cl+ :iter))
